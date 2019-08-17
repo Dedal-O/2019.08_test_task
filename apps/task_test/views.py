@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from .serializers import *
 from .models import EnterpriseModel, CityAreaModel, ProductItemBaseModel, ProductItemEnterpriseModel
-
+from .filters import *
 
 __all__ = ('CityAreaViewset', 'EnterpriseViewset', 'ProductItemBaseViewset', )
 
@@ -20,6 +20,7 @@ class EnterpriseViewset(viewsets.ModelViewSet):
     """
     queryset = EnterpriseModel.objects.all()
     serializer_class = EnterpriseSerializer
+    filterset_class = EnterpriseFilter
 
 
 class ProductItemBaseViewset(viewsets.ModelViewSet):
